@@ -1,6 +1,6 @@
-# File Save As
+# Progress Bar
 
-Light weight file 'Save As' angular component without external libraries/dependencies.
+Light weight file 'Progress Bar' angular component without external libraries/dependencies.
 
 ![alt text](img/file-save-as.png)
 
