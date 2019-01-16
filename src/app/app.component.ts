@@ -6,6 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
+  barOptions = {
+    color:"#0e90d2",
+    width:"90%",
+    label:{
+      enable: true,
+      value: "Progress Bar",
+      color: "#fff"
+    },
+    striped: true,
+    active: true
+  }
 }
 
