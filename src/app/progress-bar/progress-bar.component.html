@@ -1,6 +1,8 @@
-<div class="progress">
-  <div class="bar " [ngClass]="{striped: barProperties.striped, active: barProperties.active }" 
-  [style.width]='barProperties.width' [style.background-color]='barProperties.color'>
-    <span *ngIf="barProperties.label.enable" [style.color]='barProperties.label.color'>{{barProperties.label.value}}</span>
+<div class="progress-linear">
+  <div class="bar" [ngClass]="{stripped: barProperties.stripped, active: barProperties.active }" 
+    [style.width]='barProperties.width' [style.background-color]='barProperties.color'>
+    <span *ngIf="barProperties.label.enable" [style.color]='barProperties.label.color'>
+      {{barProperties.label.value}}
+    </span>
   </div>
 </div>

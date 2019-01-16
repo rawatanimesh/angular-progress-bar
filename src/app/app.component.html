@@ -1,3 +1,23 @@
 <div class="container">
     <progress-bar [barProperties]="barOptions"></progress-bar>
+    <br>
+    <div>
+        <span>Color:-</span>
+        <input type="text" [(ngModel)]="barOptions.color">
+        <br>
+        <span>Width:-</span>
+        <input type="text" [(ngModel)]="barOptions.width">
+        <br>
+        <span>Label:-</span> <br>
+        <span>Enable</span>
+        <input type="checkbox" [(ngModel)]="barOptions.label.enable"><br>
+        <span>Value</span>
+        <input type="text" [(ngModel)]="barOptions.label.value"><br>
+        <span>Color</span>
+        <input type="text" [(ngModel)]="barOptions.label.color"> <br>
+        <span>Stripped:-</span>
+        <input type="checkbox" [(ngModel)]="barOptions.stripped"><br>
+        <span>Active:-</span>
+        <input type="checkbox" [(ngModel)]="barOptions.active">  <br>
+    </div>
 </div>

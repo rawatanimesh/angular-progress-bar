@@ -14,7 +14,7 @@ export class AppComponent {
       value: "Progress Bar",
       color: "#fff"
     },
-    striped: true,
+    stripped: true,
     active: true
   }
 }
