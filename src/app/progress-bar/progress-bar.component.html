@@ -1,33 +1,38 @@
 <!-- radial bar -->
-<div *ngIf="barProperties.barType == 'radial'" class="set-size charts-container">
+<div *ngIf="barProperties.barType == 'radial'" class="set-size charts-container"
+  [style.font-size.em]="barProperties.radial.size">
   <div>
     <div class="pie-wrapper progress-radial style-2">
-      <span *ngIf="barProperties.label.enable" class="label">
+      <span *ngIf="barProperties.radial.label.enable" class="label"
+       [style.color]="barProperties.radial.label.color" >
         {{barProperties.progress}}
-        <span class="smaller">
+        <!-- <span *ngIf="!barProperties.progress">0</span> -->
+        <span class="smaller" [style.color]="barProperties.radial.label.color" >
           %</span>
         </span>
-      <div class="pie">
+      <div class="pie" >
         <div class="half-circle left-side" [style.border-color]='barProperties.color' 
         [style.transform]="'rotate(' + (barProperties.progress * 3.6) + 'deg)'"
+        [style.border]="barProperties.color +' '+ (barProperties.radial.depth)/16+ 'em solid'"
         >
         </div>
         <div class="half-circle" [ngClass]="{'right-side': barProperties.progress <=50,'right-side2': barProperties.progress >50 }"
-          [style.border-color]='barProperties.progress > 50 ? barProperties.color : "#bdc3c7"'></div>
+          [style.border-color]='barProperties.progress > 50 ? barProperties.color : "#bdc3c7"'
+          [style.border]="barProperties.color +' '+ (barProperties.radial.depth)/16+ 'em solid'"></div>
       </div>
-      <div class="shadow"></div>
+      <div class="shadow" [style.border]="'#bdc3c7 '+ (barProperties.radial.depth)/16+ 'em solid'"></div>
     </div>
   </div>
 </div>
 <!-- linear bar -->
-<div *ngIf="barProperties.barType == 'linear'" [style.height.px]='barProperties.depth' class="progress-linear">
-  <div class="bar" [ngClass]="{stripped: barProperties.stripped, active: barProperties.active }"
-   [style.width.%]='barProperties.progress' [style.height.px]='barProperties.depth'
-   [style.line-height.px]='barProperties.depth'
+<div *ngIf="barProperties.barType == 'linear'" [style.height.px]='barProperties.linear.depth' class="progress-linear">
+  <div class="bar" [ngClass]="{stripped: barProperties.linear.stripped, active: barProperties.linear.active }"
+   [style.width.%]='barProperties.progress' [style.height.px]='barProperties.linear.depth'
+   [style.line-height.px]='barProperties.linear.depth'
     [style.background-color]='barProperties.color'>
-    <span *ngIf="barProperties.label.enable" [style.color]='barProperties.label.color'
-    [style.font-size.px]="barProperties.label.fontSize">
-      {{barProperties.label.value}}
+    <span *ngIf="barProperties.linear.label.enable" [style.color]='barProperties.linear.label.color'
+    [style.font-size.px]="barProperties.linear.label.fontSize">
+      {{barProperties.linear.label.value}}
     </span>
   </div>
 </div>
