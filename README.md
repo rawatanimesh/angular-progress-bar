@@ -1,18 +1,18 @@
 # Progress Bar
 
-Light weight file 'Progress Bar' angular component without external libraries/dependencies.
+Fully customizable, responsive and light weight 'Progress Bar' angular component without external libraries/dependencies.
 
 ![alt text](img/file-save-as.png)
 
 ## Demo
 
-Checkout the demo on StackBlitz - https://angular-file-save-as.stackblitz.io
+Checkout the demo on StackBlitz - https://angular-progress-linear-radial-bar.stackblitz.io/
 
 ## Features
 ```
-1) Save your data as local file in the system.
-2) Save file with custom extension. Example - '.xyz' or '.abc'
-3) Set default file name and file extension of your choice
+1) Choose linear or radial progress bar
+2) Fully customizable. 
+3) Responsive design to adjust all type of project requirements.
 ```
 
 ## Adding the component in your project
@@ -20,25 +20,25 @@ Checkout the demo on StackBlitz - https://angular-file-save-as.stackblitz.io
 ### Add Component in module
 Import
 `
-import { FileSaveAsComponent } from './file-save-as/file-save-as.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 `
 
 Declaration
 `
 declarations: [
-    FileSaveAsComponent
+    ProgressBarComponent
   ]
 `
 
 ### Add selector in HTML
 ```
-<file-save-as [fileContent]="fileData"></file-save-as>
+<progress-bar [barProperties]="barOptions"></progress-bar>
 ```
 
 ### Selector Properties
-Property `fileContent` accepts the data you want to save in file.
+Property `barProperties` accepts JSON object which will customize the progress bar according to user choice. 
 
-### file-save-as.component.ts
+### progress-bar.component.ts
 ``` typescript
 import { Component, Input } from '@angular/core';
 
@@ -65,7 +65,7 @@ export class FileSaveAsComponent {
 
 ```
 
-### file-save-as.component.ts.component.html
+### progress-bar.component.html
 ``` typescript
 <div class="file-container">
   <button class="file-button" (click)="saveAsProject()">Save As</button>
@@ -73,7 +73,7 @@ export class FileSaveAsComponent {
 </div>
 ```
 
-### file-save-as.component.ts.component.scss
+### progress-bar.component.scss
 ``` typescript
 .file-container{
     text-align: center;
