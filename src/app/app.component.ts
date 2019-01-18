@@ -29,7 +29,7 @@ export class AppComponent {
         color: "#09608c",
       }
     }
-    
+     
   }
 }
 
