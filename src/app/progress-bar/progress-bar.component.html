@@ -13,12 +13,13 @@
       <div class="pie" >
         <div class="half-circle left-side" [style.border-color]='barProperties.color' 
         [style.transform]="'rotate(' + (barProperties.progress * 3.6) + 'deg)'"
-        [style.border]="barProperties.color +' '+ (barProperties.radial.depth)/16+ 'em solid'"
+        [style.border]="barProperties.progress > 0 ? barProperties.color +' '+ (barProperties.radial.depth)/16+ 'em solid' : '#bdc3c7 '+ (barProperties.radial.depth)/16+ 'em solid'"
         >
         </div>
         <div class="half-circle" [ngClass]="{'right-side': barProperties.progress <=50,'right-side2': barProperties.progress >50 }"
           [style.border-color]='barProperties.progress > 50 ? barProperties.color : "#bdc3c7"'
-          [style.border]="barProperties.color +' '+ (barProperties.radial.depth)/16+ 'em solid'"></div>
+          [style.border]="barProperties.progress > 50 ? barProperties.color +' '+ (barProperties.radial.depth)/16+ 'em solid' : '#bdc3c7 '+ (barProperties.radial.depth)/16+ 'em solid'"
+          ></div>
       </div>
       <div class="shadow" [style.border]="'#bdc3c7 '+ (barProperties.radial.depth)/16+ 'em solid'"></div>
     </div>
