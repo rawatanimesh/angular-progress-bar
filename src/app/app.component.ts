@@ -7,15 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   barOptions = {
+    barType: 'linear',
     color:"#0e90d2",
-    width:"90%",
+    progress:"51",
+    depth: 18,
     label:{
       enable: true,
       value: "Progress Bar",
-      color: "#fff"
+      color: "#fff",
+      fontSize: 14
     },
     stripped: true,
-    active: true
+    active: true,
   }
 }
 

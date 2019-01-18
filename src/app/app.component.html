@@ -1,23 +1,55 @@
 <div class="container">
+    <h2>Progress Bar</h2>
     <progress-bar [barProperties]="barOptions"></progress-bar>
-    <br>
-    <div>
-        <span>Color:-</span>
-        <input type="text" [(ngModel)]="barOptions.color">
-        <br>
-        <span>Width:-</span>
-        <input type="text" [(ngModel)]="barOptions.width">
-        <br>
-        <span>Label:-</span> <br>
-        <span>Enable</span>
-        <input type="checkbox" [(ngModel)]="barOptions.label.enable"><br>
-        <span>Value</span>
-        <input type="text" [(ngModel)]="barOptions.label.value"><br>
-        <span>Color</span>
-        <input type="text" [(ngModel)]="barOptions.label.color"> <br>
-        <span>Stripped:-</span>
-        <input type="checkbox" [(ngModel)]="barOptions.stripped"><br>
-        <span>Active:-</span>
-        <input type="checkbox" [(ngModel)]="barOptions.active">  <br>
-    </div>
+</div>
+<div class="input-filed-container">
+    <mat-card>
+        <mat-card-title class="card-title">Customize the progress bar</mat-card-title>
+        <mat-form-field class="card-input-field">
+            <mat-select placeholder="Bar Type" [(ngModel)]="barOptions.barType">
+                <mat-option value="linear">Linear</mat-option>
+                <mat-option value="radial">Radial</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="card-input-field">
+            <input matInput [(ngModel)]="barOptions.color" placeholder="Color">
+            <mat-hint align="start"><strong>Color of your choice</strong> </mat-hint>
+        </mat-form-field>
+        <mat-form-field class="card-input-field">
+            <input type="number" max="100" min="0" [(ngModel)]="barOptions.progress" matInput placeholder="Progress">
+            <mat-hint align="start"><strong>Min 0 and Max upto 100</strong> </mat-hint>
+        </mat-form-field>
+        <mat-form-field class="card-input-field">
+            <input type="number" [(ngModel)]="barOptions.depth" matInput placeholder="Depth">
+        </mat-form-field>
+        <div *ngIf="barOptions.barType == 'radial'">
+            <h4>Label Settings:</h4>
+            <mat-checkbox class="card-input-field" [(ngModel)]="barOptions.label.enable">Enable</mat-checkbox>
+        </div>
+        <div *ngIf="barOptions.barType == 'linear'">
+            <mat-checkbox class="card-input-field" [(ngModel)]="barOptions.stripped">
+                Stripped
+            </mat-checkbox>
+            <br>
+            <mat-checkbox class="card-input-field" [(ngModel)]="barOptions.active">
+                Active
+            </mat-checkbox>
+            <mat-divider class="card-field-divider"></mat-divider>
+            <h4>Label Settings:</h4>
+            <mat-checkbox class="card-input-field" [(ngModel)]="barOptions.label.enable">Enable</mat-checkbox>
+            <mat-form-field class="card-input-field">
+                <input matInput [(ngModel)]="barOptions.label.value" placeholder="Value">
+                <mat-hint align="start"><strong>Label text</strong> </mat-hint>
+            </mat-form-field>
+            <mat-form-field class="card-input-field">
+                <input matInput [(ngModel)]="barOptions.label.color" placeholder="Color">
+                <mat-hint align="start"><strong>Label color</strong> </mat-hint>
+            </mat-form-field>
+            <mat-form-field class="card-input-field">
+                <input type="number" [(ngModel)]="barOptions.label.fontSize" matInput placeholder="Label Font Size">
+                <mat-hint align="start"><strong>Label Font Size</strong> </mat-hint>
+            </mat-form-field>
+        </div>
+        <h3 class="container">{{barOptions | json}}</h3>
+    </mat-card>
 </div>

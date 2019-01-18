@@ -1,7 +1,32 @@
-<div class="progress-linear">
-  <div class="bar" [ngClass]="{stripped: barProperties.stripped, active: barProperties.active }" 
-    [style.width]='barProperties.width' [style.background-color]='barProperties.color'>
-    <span *ngIf="barProperties.label.enable" [style.color]='barProperties.label.color'>
+<!-- radial bar -->
+<div *ngIf="barProperties.barType == 'radial'" class="set-size charts-container">
+  <div>
+    <div class="pie-wrapper progress-radial style-2">
+      <span *ngIf="barProperties.label.enable" class="label">
+        {{barProperties.progress}}
+        <span class="smaller">
+          %</span>
+        </span>
+      <div class="pie">
+        <div class="half-circle left-side" [style.border-color]='barProperties.color' 
+        [style.transform]="'rotate(' + (barProperties.progress * 3.6) + 'deg)'"
+        >
+        </div>
+        <div class="half-circle" [ngClass]="{'right-side': barProperties.progress <=50,'right-side2': barProperties.progress >50 }"
+          [style.border-color]='barProperties.progress > 50 ? barProperties.color : "#bdc3c7"'></div>
+      </div>
+      <div class="shadow"></div>
+    </div>
+  </div>
+</div>
+<!-- linear bar -->
+<div *ngIf="barProperties.barType == 'linear'" [style.height.px]='barProperties.depth' class="progress-linear">
+  <div class="bar" [ngClass]="{stripped: barProperties.stripped, active: barProperties.active }"
+   [style.width.%]='barProperties.progress' [style.height.px]='barProperties.depth'
+   [style.line-height.px]='barProperties.depth'
+    [style.background-color]='barProperties.color'>
+    <span *ngIf="barProperties.label.enable" [style.color]='barProperties.label.color'
+    [style.font-size.px]="barProperties.label.fontSize">
       {{barProperties.label.value}}
     </span>
   </div>

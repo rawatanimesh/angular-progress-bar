@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { MatInputModule, MatCardModule, MatDividerModule, MatSelectModule,
+  MatCheckboxModule } from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -13,8 +16,13 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
-
+    FormsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatCardModule,
+    MatDividerModule,
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
