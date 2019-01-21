@@ -10,7 +10,7 @@ Checkout the demo on StackBlitz - https://angular-progress-linear-radial-bar.sta
 
 ## Features
 ```
-1) Change between `linear` and `radial` progress bar.
+1) Change between 'linear' and 'radial' progress bar.
 2) Fully 'customizable'. Change color, size, label properties, animations etc. 
 3) 'Responsive' design to adjust all type of project requirements.
 ```
@@ -36,19 +36,20 @@ declarations: [
 ```
 
 ### Selector Properties
-Property `barProperties` accepts JSON object which will customize the progress bar according to user choice. 
+Property `barProperties` accepts JSON object which will customize the progress bar according to user choice.
 You can send value `linear` for linear bar and `radial` for radial bar with `barType` key.
+
 Key `progress` can have value between 0 to 100.
 
 Change and play with other key-values to get bar which fits your purpose.
 
 
-### Sample JSON Object (Linear)
+### Sample JSON Object
 ``` typescript
 barOptions = {
     barType: 'linear', //or 'radial' for radial bar
     color: "#0e90d2",
-    progress: 66,
+    progress: 66, //between 0 to 100
     linear: {
       depth: 22,
       stripped: true,
@@ -62,7 +63,7 @@ barOptions = {
       }
     },
     radial: {
-      depth: 3,
+      depth: 3, //max 8
       size: 9,
       secondColor: "#bdc3c7",
       label: {
