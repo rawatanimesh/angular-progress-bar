@@ -2,8 +2,8 @@
 
 Fully customizable, responsive and light weight 'Progress Bar' angular component without external libraries/dependencies.
 
-![alt text](img/linear-bar.png)
 ![alt text](img/radial-bar.png)
+![alt text](img/linear-bar.png)
 
 ## Demo
 
