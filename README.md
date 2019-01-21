@@ -2,7 +2,8 @@
 
 Fully customizable, responsive and light weight 'Progress Bar' angular component without external libraries/dependencies.
 
-![alt text](img/file-save-as.png)
+![alt text](img/linear-bar.png)
+![alt text](img/radial-bar.png)
 
 ## Demo
 
@@ -36,7 +37,8 @@ declarations: [
 ```
 
 ### Selector Properties
-Property `barProperties` accepts JSON object which will customize the progress bar according to user choice.
+Property `barProperties` accepts JSON object which customize the progress bar according to user choice.
+
 You can send value `linear` for linear bar and `radial` for radial bar with `barType` key.
 
 Key `progress` can have value between 0 to 100.
