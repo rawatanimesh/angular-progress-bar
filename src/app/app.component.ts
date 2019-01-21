@@ -7,29 +7,30 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   barOptions = {
-    barType: 'radial',
-    color:"#0e90d2",
-    progress:66,
-    linear:{
+    barType: 'linear',
+    color: "#0e90d2",
+    progress: 66,
+    linear: {
       depth: 22,
       stripped: true,
       active: true,
-      label:{
+      label: {
         enable: true,
-        value: "Progress Bar",
+        value: "Linear Bar",
         color: "#fff",
-        fontSize: 15
+        fontSize: 15,
+        showPercentage: true,
       }
     },
-    radial:{
+    radial: {
       depth: 3,
       size: 9,
-      label:{
+      secondColor: "#bdc3c7",
+      label: {
         enable: true,
         color: "#09608c",
       }
     }
-     
   }
 }
 
