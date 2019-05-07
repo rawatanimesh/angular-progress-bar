@@ -9,6 +9,7 @@ export class AppComponent {
   barOptions = {
     barType: 'linear',
     color: "#0e90d2",
+    secondColor: "#bdc3c7",
     progress: 66,
     linear: {
       depth: 22,
@@ -25,7 +26,7 @@ export class AppComponent {
     radial: {
       depth: 3,
       size: 9,
-      secondColor: "#bdc3c7",
+      // secondColor: "#bdc3c7",
       label: {
         enable: true,
         color: "#09608c",

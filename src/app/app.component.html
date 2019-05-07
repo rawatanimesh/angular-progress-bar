@@ -18,11 +18,11 @@
         <mat-form-field class="card-input-field">
             <input matInput [(ngModel)]="barOptions.color" placeholder="Color">
         </mat-form-field>
+        <mat-form-field class="card-input-field">
+            <input matInput [(ngModel)]="barOptions.secondColor" placeholder="Second Color">
+        </mat-form-field>
 
         <div *ngIf="barOptions.barType == 'radial'">
-            <mat-form-field class="card-input-field">
-                <input matInput [(ngModel)]="barOptions.radial.secondColor" placeholder="Second Color">
-            </mat-form-field>
             <mat-form-field class="card-input-field">
                 <input type="number" [(ngModel)]="barOptions.radial.depth" [max]='8' matInput placeholder="Depth">
             </mat-form-field>

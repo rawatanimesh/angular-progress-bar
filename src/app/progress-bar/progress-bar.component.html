@@ -13,21 +13,22 @@
       <div class="pie" >
         <div class="half-circle left-side" [style.border-color]='barProperties.color' 
         [style.transform]="'rotate(' + (barProperties.progress * 3.6) + 'deg)'"
-        [style.border]="barProperties.progress > 0 ? barProperties.color +' '+ (barProperties.radial.depth)/16+ 'em solid' : barProperties.radial.secondColor +' '+ (barProperties.radial.depth)/16+ 'em solid'"
+        [style.border]="barProperties.progress > 0 ? barProperties.color +' '+ (barProperties.radial.depth)/16+ 'em solid' : barProperties.secondColor +' '+ (barProperties.radial.depth)/16+ 'em solid'"
         >
         </div>
         <div class="half-circle" [ngClass]="{'right-side': barProperties.progress <=50,'right-side2': barProperties.progress >50 }"
-          [style.border-color]='barProperties.progress > 50 ? barProperties.color : barProperties.radial.secondColor'
-          [style.border]="barProperties.progress > 50 ? barProperties.color +' '+ (barProperties.radial.depth)/16+ 'em solid' : barProperties.radial.secondColor +' '+ (barProperties.radial.depth)/16+ 'em solid'"
+          [style.border-color]='barProperties.progress > 50 ? barProperties.color : barProperties.secondColor'
+          [style.border]="barProperties.progress > 50 ? barProperties.color +' '+ (barProperties.radial.depth)/16+ 'em solid' : barProperties.secondColor +' '+ (barProperties.radial.depth)/16+ 'em solid'"
           ></div>
       </div>
-      <div class="shadow" [style.border]="barProperties.radial.secondColor+' '+ (barProperties.radial.depth)/16+ 'em solid'"></div>
+      <div class="shadow" [style.border]="barProperties.secondColor+' '+ (barProperties.radial.depth)/16+ 'em solid'"></div>
     </div>
   </div>
 </div>
 
 <!-- linear bar -->
-<div *ngIf="barProperties.barType == 'linear'" [style.height.px]='barProperties.linear.depth' class="progress-linear">
+<div *ngIf="barProperties.barType == 'linear'" [style.height.px]='barProperties.linear.depth'
+[style.background-color]='barProperties.secondColor' class="progress-linear">
   <div class="bar" *ngIf="barProperties.progress && barProperties.progress <= 100 && barProperties.progress >= 0" [ngClass]="{stripped: barProperties.linear.stripped, active: barProperties.linear.active }"
    [style.width.%]='barProperties.progress' [style.height.px]='barProperties.linear.depth'
    [style.line-height.px]='barProperties.linear.depth'
