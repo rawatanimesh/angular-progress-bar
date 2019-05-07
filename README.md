@@ -51,6 +51,7 @@ Change and play with other key-values to get bar which fits your purpose.
 barOptions = {
     barType: 'linear', //or 'radial' for radial bar
     color: "#0e90d2",
+    secondColor: "#D3D3D3",
     progress: 66, //between 0 to 100
     linear: {
       depth: 22,
@@ -67,7 +68,6 @@ barOptions = {
     radial: {
       depth: 3, //max 8
       size: 9,
-      secondColor: "#bdc3c7",
       label: {
         enable: true,
         color: "#09608c",
@@ -109,21 +109,22 @@ export class ProgressBarComponent{
       <div class="pie" >
         <div class="half-circle left-side" [style.border-color]='barProperties.color' 
         [style.transform]="'rotate(' + (barProperties.progress * 3.6) + 'deg)'"
-        [style.border]="barProperties.progress > 0 ? barProperties.color +' '+ (barProperties.radial.depth)/16+ 'em solid' : barProperties.radial.secondColor +' '+ (barProperties.radial.depth)/16+ 'em solid'"
+        [style.border]="barProperties.progress > 0 ? barProperties.color +' '+ (barProperties.radial.depth)/16+ 'em solid' : barProperties.secondColor +' '+ (barProperties.radial.depth)/16+ 'em solid'"
         >
         </div>
         <div class="half-circle" [ngClass]="{'right-side': barProperties.progress <=50,'right-side2': barProperties.progress >50 }"
-          [style.border-color]='barProperties.progress > 50 ? barProperties.color : barProperties.radial.secondColor'
-          [style.border]="barProperties.progress > 50 ? barProperties.color +' '+ (barProperties.radial.depth)/16+ 'em solid' : barProperties.radial.secondColor +' '+ (barProperties.radial.depth)/16+ 'em solid'"
+          [style.border-color]='barProperties.progress > 50 ? barProperties.color : barProperties.secondColor'
+          [style.border]="barProperties.progress > 50 ? barProperties.color +' '+ (barProperties.radial.depth)/16+ 'em solid' : barProperties.secondColor +' '+ (barProperties.radial.depth)/16+ 'em solid'"
           ></div>
       </div>
-      <div class="shadow" [style.border]="barProperties.radial.secondColor+' '+ (barProperties.radial.depth)/16+ 'em solid'"></div>
+      <div class="shadow" [style.border]="barProperties.secondColor+' '+ (barProperties.radial.depth)/16+ 'em solid'"></div>
     </div>
   </div>
 </div>
 
 <!-- linear bar -->
-<div *ngIf="barProperties.barType == 'linear'" [style.height.px]='barProperties.linear.depth' class="progress-linear">
+<div *ngIf="barProperties.barType == 'linear'" [style.height.px]='barProperties.linear.depth'
+[style.background-color]='barProperties.secondColor' class="progress-linear">
   <div class="bar" *ngIf="barProperties.progress && barProperties.progress <= 100 && barProperties.progress >= 0" [ngClass]="{stripped: barProperties.linear.stripped, active: barProperties.linear.active }"
    [style.width.%]='barProperties.progress' [style.height.px]='barProperties.linear.depth'
    [style.line-height.px]='barProperties.linear.depth'
@@ -147,7 +148,7 @@ export class ProgressBarComponent{
     .progress-linear {
     overflow: hidden;
     height: 18px;
-    background-color: #f7f7f7;
+    //background-color: #f7f7f7;
     -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
